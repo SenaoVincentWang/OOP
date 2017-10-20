@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Web;
 using System.IO;
 
 namespace Com.Senao.Oop
@@ -33,7 +34,7 @@ namespace Com.Senao.Oop
 
         public void ProcessSchedules()
         {
-            JObject scheduleData = JObject.Parse(File.ReadAllText("Schedule.json"));
+            JObject scheduleData = JObject.Parse(File.ReadAllText(HttpContext.Current.Server.MapPath("~/App_Data/Schedule.json")));
             JArray scheduleDataArray = (JArray)scheduleData["schedules"];
             this.schedules = scheduleDataArray.ToObject<List<Schedule>>();
         }

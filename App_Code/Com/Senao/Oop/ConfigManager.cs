@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Web;
 using System.IO;
 
 namespace Com.Senao.Oop
@@ -33,9 +34,18 @@ namespace Com.Senao.Oop
 
         public void ProcessConfigs()
         {
-            JObject configData = JObject.Parse(File.ReadAllText("Config.json"));
+            JObject configData = JObject.Parse(File.ReadAllText(HttpContext.Current.Server.MapPath("~/App_Data/Config.json")));
             JArray configDataArray = (JArray)configData["configs"];
             this.configs = configDataArray.ToObject<List<Config>>();
         }
+
+        public int iProcessConfigs()
+        {
+            JObject configData = JObject.Parse(File.ReadAllText(HttpContext.Current.Server.MapPath("~/App_Data/Config.json")));
+            JArray configDataArray = (JArray)configData["configs"];
+            this.configs = configDataArray.ToObject<List<Config>>();
+            return configDataArray.Count;
+        }
+
     }
 }
