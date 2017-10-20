@@ -1,0 +1,37 @@
+{
+  "configs": [
+    {
+      "ext": "cs",
+      "location": "c:\\Projects",
+      "subDirectory": true,
+      "unit": "file",
+      "remove": false,
+      "handler": "zip",
+      "destination": "directory",
+      "dir": "c:\\MyArchieves",
+      "connectionString": ""
+    },
+    {
+      "ext": "docx",
+      "location": "c:\\Documents",
+      "subDirectory": true,
+      "unit": "file",
+      "remove": false,
+      "handler": "encode",
+      "destination": "db",
+      "dir": "",
+      "connectionString": "MyConnectionString"
+    },
+    {
+      "ext": "jpg",
+      "location": "c:\\Pictures",
+      "subDirectory": true,
+      "unit": "file",
+      "remove": false,
+      "handler": "",
+      "destination": "directory",
+      "dir": "c:\\MyArchieves",
+      "connectionString": ""
+    }
+  ]
+}
